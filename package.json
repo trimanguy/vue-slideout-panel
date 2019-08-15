@@ -1,12 +1,12 @@
 {
   "name": "vue-slideout-panel",
   "version": "3.0.0",
-  "description": "SlideoutPanel Component for Vue.js",
-  "author": "lyollix <lyollix@gmail.com>",
+  "description": "A fork of lyollix's SlideoutPanel Component for Vue.js",
+  "author": "trimanguy <triman.nguyen@gmail.com>",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lyollix/vue-slideout-panel.git"
+    "url": "https://github.com/trimanguy/vue-slideout-panel"
   },
   "keywords": [
     "vue",

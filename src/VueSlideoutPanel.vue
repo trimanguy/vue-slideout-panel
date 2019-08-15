@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="fade">
-      <div v-if="isVisibleDock" class="blackout" @click="closeAll"></div>
+      <div v-if="isVisibleDock && !hideOverlay" class="blackout" @click="handleOverlayClick"></div>
     </transition>
     <transition name="slide-out" v-on:enter="d_enter">
       <div v-if="isVisibleDock"
@@ -65,6 +65,18 @@ export default {
   name: 'VueSideoutPanel',
 
   props: {
+    // hides display of overlay
+    hideOverlay: {
+      type: Boolean,
+      default: false,
+      required: false
+    },
+    // clicking on overlay will not close panel
+    persistent: {
+      type: Boolean,
+      default: false,
+      required: false
+    },
     value: {
       type: Boolean,
       default: false,
@@ -277,6 +289,12 @@ export default {
         this.setTransform(this.$refs.dock,['right',easeOutSine,'1.2ss']);
       }
       this.closeDock();
+    },
+
+    handleOverlayClick() {
+      if (!this.persistent) {
+        this.closeAll();
+      }
     }
   }
 }
